@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="tetris.css">
+<meta charset="UTF-8">
+<title>Web-Projekt Tetris</title>
+</head>
+<body>
+<div class="nav">
+		<a href="../index.html">Home</a>
+		<a href="tetris.html">Tetris</a> 
+		<a href="../Highscore/highscore.html">Highscore</a> 
+		<a href="../Help/help.html">Hilfe</a> 
+		<a href="../Credits/credits.html">Credits</a>
+	</div>
+	<audio id="TetrisMelodie">
+		<source src="../Media/tetris-gameboy-02.mp3" type="audio/mpeg">
+	</audio>
+
+	<button id="mbutton" onclick="audioScript()">Musik abspielen</button>
+
+	<script>
+		var audio = document.getElementById("TetrisMelodie");
+		var play = 0;
+
+		function audioScript() {
+			if (play != 0) {
+				audio.pause();
+				play=0;
+				document.getElementById("mbutton").innerHTML="Musik abspielen";
+			} else {
+				audio.play();
+				play = 1;
+				document.getElementById("mbutton").innerHTML="Musik pausieren"
+			}
+		}
+	</script>
+</body>
+</html>
