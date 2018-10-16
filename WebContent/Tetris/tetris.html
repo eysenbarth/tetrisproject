@@ -11,6 +11,10 @@
 		<source src="../Media/tetris-gameboy-02.mp3" type="audio/mpeg">
 	</audio>
 
+	<canvas id="myCanvas" width="640" height="480"
+		style="border: 1px solid #000000;">
+	</canvas>
+
 	<button id="mbutton" onclick="audioScript()">Musik abspielen</button>
 
 	<script>
@@ -20,12 +24,12 @@
 		function audioScript() {
 			if (play != 0) {
 				audio.pause();
-				play=0;
-				document.getElementById("mbutton").innerHTML="Musik abspielen";
+				play = 0;
+				document.getElementById("mbutton").innerHTML = "Musik abspielen";
 			} else {
 				audio.play();
 				play = 1;
-				document.getElementById("mbutton").innerHTML="Musik pausieren"
+				document.getElementById("mbutton").innerHTML = "Musik pausieren"
 			}
 		}
 	</script>
