@@ -6,6 +6,17 @@ table, th, td {
 	width: 50%;
 }
 
+@font-face{
+	font-family: Minecraft;
+	src: url(../Media/Minecraft.ttf);
+	}
+
+body {
+	font-family: Minecraft;
+}
 caption {
 	padding: 3px;
+	font-size: 40px;
+	
+	
 }
