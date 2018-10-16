@@ -9,8 +9,9 @@
 .nav {
 	background-color: powderblue;
 	position: fixed;
-	width: 98.5%;
+	width: 100%;
 	top: 0px;
+	left: 0px;
 }
 
 .nav a {
