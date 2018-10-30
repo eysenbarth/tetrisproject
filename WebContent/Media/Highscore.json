@@ -1,5 +1,10 @@
-[
-{
-"name":"dinge"
-}
+var highscoreSpieler[
+	{
+		"spielername": "Sir Tetrisalot",
+		"punkte": "10000",
+		"platzierung": "1"
+	}
 ]
+
+
+
