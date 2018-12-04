@@ -5,39 +5,21 @@
 <meta charset="UTF-8">
 <title>Web-Projekt Tetris</title>
 <script>
-var jsonobj = null
-var txt = "";
-var x;
-var data_file;
-function loadtable() {
-	data_file = "../Media/Highscore.json";
-	xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function(){
-		if (this.readyState == 4 && this.status == 200){
-			jsonobj = JSON.parse(this.responseText);
-			txt += "<table><tr>"
-			for (x in jsonobj){
-				txt += "<tr><td>" + json[x].name + "</td></tr>";
-			}
-			txt += "</table>"
-			document.getElementById("ausgabe").innetHTML = txt;
-			}
-		};
-	xhttp.open("GET",data_file,true);
-	xhttp.send();
-	}
-	
-}
+function get(){
+
+	document.getElementById("result").innerHTML = JSON.parse(localStorage.getItem("high")).name + " " +  JSON.parse(localStorage.getItem("high")).highscore;
+}						
 
 </script>
 </head>
-<body onload="loadtable()">
+<body>
 <h1>Highscore</h1>
-<div id="ausgabe"></div>
+<div id="result">first</div>
+
+<button onclick="get()">LocalStorage showTest</button>
 
 
-
-
+<a href = "../Tetris/tetris.html">Tetris Page</a>
 </body>
 
 </html>

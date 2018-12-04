@@ -14,13 +14,23 @@
 	<canvas id="myCanvas" width="480" height="640">
 	</canvas>
 
+	<form id="namefield">
+		<input type="text" value="name"/>
+	</form>
+	<form id="testscore">
+		<input type="text" value="zahl" />
+	</form>
+	<button onclick="savescore()">Save Highscore</button>
 	<footer>
 		<button id="mbutton" onclick="audioScript()">Musik abspielen</button>
+		<a href = "../Highscore/highscore.html">goto Highscore</a>
 	</footer>
 
 	<script>
 		var audio = document.getElementById("TetrisMelodie");
 		var play = 0;
+		var namestr = "";
+		var score = "";
 
 		function audioScript() {
 			if (play != 0) {
@@ -31,6 +41,21 @@
 				audio.play();
 				play = 1;
 				document.getElementById("mbutton").innerHTML = "Musik pausieren"
+			}
+		}
+		
+		function getHighscore(){
+			//var x = document.getElementById("namefield");
+			//var y = document.getElementById("testscore");
+			namestr = namefield.elements[0].value;
+			score = testscore.elements[0].value;
+		}
+		function savescore(){
+			getHighscore();
+			if (typeof(Storage) !== "undefined") {
+			localStorage.setItem("high",JSON.stringify({name: namestr, highscore:score}));
+			} else {
+				alert("Sorry, your browser does not support Web Storage...");
 			}
 		}
 	</script>
