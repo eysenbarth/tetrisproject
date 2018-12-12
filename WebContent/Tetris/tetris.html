@@ -12,10 +12,10 @@
 	</audio>
 
 	<canvas id="myCanvas" width="480" height="640">
-	</canvas>
+		</canvas>
 
 	<form id="namefield">
-		<input type="text" value="name"/>
+		<input type="text" value="name" />
 	</form>
 	<form id="testscore">
 		<input type="text" value="zahl" />
@@ -23,9 +23,13 @@
 	<button onclick="savescore()">Save Highscore</button>
 	<footer>
 		<button id="mbutton" onclick="audioScript()">Musik abspielen</button>
-		<a href = "../Highscore/highscore.html">goto Highscore</a>
+		<a href="../Highscore/highscore.html">goto Highscore</a>
 	</footer>
 
+	<script src="tetrismusik.js"></script>
 	<script src="tetris.js"></script>
+	<script src="controller.js"></script>
+	<script src="render.js"></script>
+
 </body>
 </html>
