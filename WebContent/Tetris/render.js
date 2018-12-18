@@ -28,7 +28,7 @@ function render() {
     }
 
     ctx.fillStyle = 'black';
-    ctx.strokeStyle = 'white';
+    ctx.strokeStyle = 'grey';
     for ( var y = 0; y < 4; ++y ) {
         for ( var x = 0; x < 4; ++x ) {
             if ( tetromino[ y ][ x ] ) {

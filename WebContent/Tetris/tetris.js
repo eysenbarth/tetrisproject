@@ -177,5 +177,3 @@ function newGame() {
     verloren = false;
     interval = setInterval( tick, 250 );
 }
-
-newGame();
