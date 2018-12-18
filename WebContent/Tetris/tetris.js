@@ -22,6 +22,7 @@ var colors = [
     'cyan', 'orange', 'blue', 'yellow', 'red', 'green', 'purple'
 ];
 var tickrate ;
+var newlvl;
 
 
 function newShape() {
@@ -72,7 +73,7 @@ function tick() {
         newShape();
     }
     setTimeout(tick,tickrate);
-    levelzeile.innerHTML = tickrate;
+    levelzeile.innerHTML = newlvl;
 }
 
 function halten() {
@@ -117,7 +118,10 @@ function leeren() {
             ++y;
             score += 100;
             scorezeile.innerHTML = score;
-            tickrate -= 100 ;
+            if(score/1000 == newlvl){
+            	newlvl += 1;
+            	tickrate -= 50;
+            }
            
         }
     }
@@ -185,6 +189,7 @@ function newGame() {
     tickrate = 500;
     tick();
     score = 0;
+    newlvl = 1;
     scorezeile.innerHTML = score;
-    levelzeile.innerHTML = tickrate;
+    levelzeile.innerHTML = newlvl;
 }
