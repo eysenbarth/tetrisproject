@@ -23,6 +23,7 @@ var colors = [
 ];
 var tickrate ;
 
+
 function newShape() {
     var id = Math.floor( Math.random() * tetrominos.length );
     var shape = tetrominos[ id ]; 
@@ -65,7 +66,7 @@ function tick() {
         halten();
         leeren();
         if (verloren) {
-           
+        	gameBtn.disabled = false;
             return false;
         }
         newShape();
@@ -177,6 +178,7 @@ function valid( offsetX, offsetY, temptromino ) {
 }
 
 function newGame() {
+	gameBtn.disabled = true;
     init();
     newShape();
     verloren = false;
