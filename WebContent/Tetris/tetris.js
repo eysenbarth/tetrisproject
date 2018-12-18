@@ -23,6 +23,7 @@ var colors = [
 ];
 var tickrate ;
 var newlvl;
+var notpaused;
 
 
 function newShape() {
@@ -72,7 +73,9 @@ function tick() {
         }
         newShape();
     }
-    setTimeout(tick,tickrate);
+    if(notpaused){
+    	setTimeout(tick,tickrate);
+    }
     levelzeile.innerHTML = newlvl;
 }
 
@@ -128,29 +131,33 @@ function leeren() {
 }
 //übersetzt die Tasteneingaben
 function keyPress( key ) {
-    switch ( key ) {
-        case 'links':
-            if ( valid( -1 ) ) {
-                --tetrominoX;
-            }
-            break;
-        case 'rechts':
-            if ( valid( 1 ) ) {
-                ++tetrominoX;
-            }
-            break;
-        case 'hinab':
-            if ( valid( 0, 1 ) ) {
-                ++tetrominoY;
-            }
-            break;
-        case 'drehen':
-            var gedreht = drehen( tetromino );
-            if ( valid( 0, 0, gedreht ) ) {
-                tetromino = gedreht;
-            }
-            break;
-    }
+	
+	if(notpaused){
+	    switch ( key ) {
+	        case 'links':
+	            if ( valid( -1 ) ) {
+	                --tetrominoX;
+	            }
+	            break;
+	        case 'rechts':
+	            if ( valid( 1 ) ) {
+	                ++tetrominoX;
+	            }
+	            break;
+	        case 'hinab':
+	            if ( valid( 0, 1 ) ) {
+	                ++tetrominoY;
+	            }
+	            break;
+	        case 'drehen':
+	            var gedreht = drehen( tetromino );
+	            if ( valid( 0, 0, gedreht ) ) {
+	                tetromino = gedreht;
+	            }
+	            break;
+	    }
+	}
+    
 }
 
 // Testet ob die Position für den Tetromino erreichbar ist. 
@@ -181,8 +188,26 @@ function valid( offsetX, offsetY, temptromino ) {
     return true;
 }
 
+function pause() {
+	if(notpaused == true){
+		notpaused = false;
+		pauseBtn.innerHTML = "Weiter";
+	} else {
+		notpaused = true;
+		tick();
+		pauseBtn.innerHTML = "Pause";
+	}
+	//notpaused = true? false: true;
+	
+	
+//	if(notpaused){
+//		
+//	}
+}
+
 function newGame() {
 	gameBtn.disabled = true;
+    notpaused = true;
     init();
     newShape();
     verloren = false;
