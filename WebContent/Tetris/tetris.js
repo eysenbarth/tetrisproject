@@ -68,6 +68,10 @@ function tick() {
         halten();
         leeren();
         if (verloren) {
+        	var canvas = document.getElementById("myCanvas");
+        	var ctx = canvas.getContext("2d");
+        	ctx.font = "30px Arial";
+        	ctx.strokeText("GIT GUD", 320, 240);
         	gameBtn.disabled = false;
             return false;
         }
@@ -197,12 +201,6 @@ function pause() {
 		tick();
 		pauseBtn.innerHTML = "Pause";
 	}
-	//notpaused = true? false: true;
-	
-	
-//	if(notpaused){
-//		
-//	}
 }
 
 function newGame() {
