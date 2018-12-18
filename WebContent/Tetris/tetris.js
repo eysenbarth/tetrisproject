@@ -72,7 +72,6 @@ function tick() {
     }
 }
 
-
 function halten() {
     for ( var y = 0; y < 4; ++y ) {
         for ( var x = 0; x < 4; ++x ) {
@@ -177,3 +176,4 @@ function newGame() {
     verloren = false;
     interval = setInterval( tick, 250 );
 }
+newGame();
