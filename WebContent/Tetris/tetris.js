@@ -22,6 +22,7 @@ var tetrominos = [
 var colors = [
     'cyan', 'orange', 'blue', 'yellow', 'red', 'green', 'purple'
 ];
+var tickrate ;
 
 function newShape() {
     var id = Math.floor( Math.random() * tetrominos.length );
@@ -94,7 +95,8 @@ function drehen( tetromino ) {
     return temptromino;
 }
 
-// prüft von oben nach unten ob Reihen gefüllt sind.
+// prüft von oben nach unten ob Reihen gefüllt sind und löscht reihen, sollten überall 1en sein.
+//nachtrag 18/12 punkte logik zu den reihen
 function leeren() {
     for ( var y = REIHEN - 1; y >= 0; --y ) {
         var rowFilled = true;
@@ -108,13 +110,12 @@ function leeren() {
             for ( var yy = y; yy > 0; --yy ) {
                 for ( var x = 0; x < SPALTEN; ++x ) {
                     spielfeld[ yy ][ x ] = spielfeld[ yy - 1 ][ x ];
-                   
-                    
                 }
             }
             ++y;
             score += 100;
             scorezeile.innerHTML = score;
+            tickrate -= 200;
         }
     }
 }
@@ -178,8 +179,8 @@ function newGame() {
     init();
     newShape();
     verloren = false;
-    interval = setInterval( tick, 250 );
+    tickrate = 500;
+    interval = setInterval( tick, tickrate );
     score = 0;
     scorezeile.innerHTML = score;
 }
-newGame();
