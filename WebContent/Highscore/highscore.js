@@ -9,8 +9,6 @@ function get(){
 }	
 
 function getHighscore(){
-	//var x = document.getElementById("namefield");
-	//var y = document.getElementById("testscore");
 	namestr = namefield.elements[0].value;
 	score = testscore.elements[0].value;
 }
