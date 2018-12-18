@@ -108,9 +108,13 @@ function leeren() {
             for ( var yy = y; yy > 0; --yy ) {
                 for ( var x = 0; x < SPALTEN; ++x ) {
                     spielfeld[ yy ][ x ] = spielfeld[ yy - 1 ][ x ];
+                   
+                    
                 }
             }
             ++y;
+            score += 100;
+            scorezeile.innerHTML = score;
         }
     }
 }
@@ -175,5 +179,7 @@ function newGame() {
     newShape();
     verloren = false;
     interval = setInterval( tick, 250 );
+    score = 0;
+    scorezeile.innerHTML = score;
 }
 newGame();
