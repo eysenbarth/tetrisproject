@@ -1,25 +1,12 @@
 var namestr = "";
 var score;
 var count;
-var chart = new Array();
 var i;
 
 function showHighscore(){
-	//hier ein String
-	//count = localStorage.getItem("count");
-//	for(i = 0;i <= Number(count);i++){
-//		chart[i] = JSON.parse(localStorage.getItem(JSON.stringify(i))).name + " " +  JSON.parse(localStorage.getItem(JSON.stringify(i))).highscore;
-//	}
-	//result.innerHTML = JSON.parse(localStorage.getItem(count)).name + " " +  JSON.parse(localStorage.getItem(count)).highscore;
-	//result.innerHTML = chart;
 	buildTable();
 	sortTable();
 }	
-
-function getHighscore(){
-	namestr = namefield.elements[0].value;
-	//score = testscore.elements[0].value;
-}
 
 function setcount(){
 	if(localStorage.getItem("count")!=null){
@@ -36,7 +23,7 @@ function setcount(){
 }
 
 function savescore(){
-	getHighscore();
+	namestr = namefield.elements[0].value;
 	setcount();
 	if (typeof(Storage) !== "undefined") {
 		//umständlich, da String benötigt
@@ -101,9 +88,4 @@ function sortTable() {
 			switching = true;
 		}
 	}
-}
-
-function clearStorage(){
-	//debug Function, use with caution!
-	localStorage.clear();
 }
