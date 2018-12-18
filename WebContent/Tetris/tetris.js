@@ -1,7 +1,6 @@
 var SPALTEN = 10, REIHEN = 20;
 var spielfeld = [];
 var verloren;
-var interval;
 var tetromino; // tetromino aktuell
 var tetrominoX, tetrominoY; // position des tetrominos 
 var tetrominos = [
@@ -61,16 +60,18 @@ function tick() {
     if ( valid( 0, 1 ) ) {
         ++tetrominoY;
     }
-    // if the element settled
+    // tetromino findet position
     else {
         halten();
         leeren();
         if (verloren) {
-            newGame();
+           
             return false;
         }
         newShape();
     }
+    setTimeout(tick,tickrate);
+    levelzeile.innerHTML = tickrate;
 }
 
 function halten() {
@@ -115,7 +116,8 @@ function leeren() {
             ++y;
             score += 100;
             scorezeile.innerHTML = score;
-            tickrate -= 200;
+            tickrate -= 100 ;
+           
         }
     }
 }
@@ -175,12 +177,12 @@ function valid( offsetX, offsetY, temptromino ) {
 }
 
 function newGame() {
-    clearInterval(interval);
     init();
     newShape();
     verloren = false;
     tickrate = 500;
-    interval = setInterval( tick, tickrate );
+    tick();
     score = 0;
     scorezeile.innerHTML = score;
+    levelzeile.innerHTML = tickrate;
 }
