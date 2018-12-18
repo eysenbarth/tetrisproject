@@ -1,5 +1,5 @@
 var namestr = "";
-var score = "";
+var score;
 var count;
 
 function get(){
@@ -10,7 +10,7 @@ function get(){
 
 function getHighscore(){
 	namestr = namefield.elements[0].value;
-	score = testscore.elements[0].value;
+	//score = testscore.elements[0].value;
 }
 
 function setcount(){
