@@ -1,22 +1,37 @@
 @charset "UTF-8";
-table, th, td {
-	border: 5px solid green;
-	border-collapse: collapse;
-	padding: 5px;
-	width: 50%;
-}
 
 @font-face{
 	font-family: Minecraft;
 	src: url(../Media/Minecraft.ttf);
-	}
-
-body {
-	font-family: Minecraft;
 }
-caption {
-	padding: 3px;
-	font-size: 40px;
-	
-	
+
+html {
+	text-align: center;	
+	color: cyan;
+}
+
+body {	
+	font-family: Minecraft;
+	font-size: 25px;
+	text-shadow: 3px 2px grey;
+	background-image: url(../Media/bgtetris.png);
+}
+
+table, th {
+	border: 2px solid grey;
+	margin: auto;
+	max-width: 1280px;
+	width: 50%;
+}
+
+td {
+	border: 2px solid grey;	
+}
+
+h1 {
+	font-size: 50px;	
+}
+
+a:visited{
+	color: cyan;
 }
