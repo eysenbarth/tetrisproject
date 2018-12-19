@@ -24,7 +24,7 @@ var colors = [
 var tickrate ;
 var newlvl;
 var notpaused;
-
+var interval;
 
 function newShape() {
     var id = Math.floor( Math.random() * tetrominos.length );
@@ -67,7 +67,9 @@ function tick() {
     else {
         halten();
         leeren();
-        if (verloren) {        	
+        if (verloren) {
+        	clearInterval(interval);
+        	ctx.fillStyle = "cyan";
         	ctx.strokeText("GIT GUD", 320, 240);
         	gameBtn.disabled = false;
             return false;
@@ -201,6 +203,7 @@ function pause() {
 }
 
 function newGame() {
+	interval = setInterval( render, 30 );
 	gameBtn.disabled = true;
     notpaused = true;
     init();
@@ -212,4 +215,10 @@ function newGame() {
     newlvl = 1;
     scorezeile.innerHTML = score;
     levelzeile.innerHTML = newlvl;
+}
+
+function startText() {
+	ctx.fillStyle = "cyan";
+	ctx.textAlign = "center";
+	ctx.fillText("Bitte geben Sie Ihren Namen in das Vorgegebene Feld ein",20,20);
 }
