@@ -1,6 +1,27 @@
 @charset "UTF-8";
 
-#zentriert {
+@font-face{
+	font-family: Minecraft;
+	src: url(Media/Minecraft.ttf);
+}
+	
+html {
+	text-align: center;
+	color: cyan;
+}
+
+body {	
+	font-family: Minecraft;
+	font-size: 25px;
+	text-shadow: 3px 2px grey;
+	background-image: url(Media/bgtetris.png);
+}
+
+a:visited{
+	color: cyan;
+}
+
+#Logo {
 	display: flex;
 	align-items: center;
 	justify-content: center;
