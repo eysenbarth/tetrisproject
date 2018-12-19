@@ -35,7 +35,6 @@ function savescore(){
 
 function buildTable(){
 	var table = document.createElement("TABLE");
-	table.border = 1;
 	table.id = "dynTable"
 
 	var tableBody = document.createElement("TBODY");
@@ -47,7 +46,6 @@ function buildTable(){
 
 	  for (var j = 0; j < 2; j++) {
 	    var td = document.createElement("TD");
-	    td.width = 75;
 	    if(j == 0){
 	    	td.appendChild(document.createTextNode(JSON.parse(localStorage.getItem(JSON.stringify(i))).name));
 	    	tr.appendChild(td);
