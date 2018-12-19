@@ -7,7 +7,7 @@
 	<title>Web-Projekt Tetris</title>
 </head>
 
-<body style="background-image:url(../Media/bgtetris.png)">
+<body>
     
     <p><a href="../Media/bgtetris.png"></a></p>
     
@@ -39,10 +39,13 @@
 			 
 	<button onclick="savescore()">Save Highscore</button>
 	<button id ="gameBtn" onclick="newGame()">Neues Spiel</button>
+	<button id="mbutton" onclick="audioScript()">Musik abspielen</button>
 	
 	<footer>
-		<button id="mbutton" onclick="audioScript()">Musik abspielen</button>
+		<a href = "../index.html">Startseite</a>
 		<a href = "../Highscore/highscore.html">goto Highscore</a>
+		<a href = "../Help/help.html">Hilfe</a>
+		<a href = "../Credits/credits.html">Impressum</a>
 	</footer>
 
 	<script src="tetrismusik.js"></script>

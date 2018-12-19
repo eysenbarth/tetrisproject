@@ -6,29 +6,29 @@
 	}
 
 html {
-  text-align: center;
+ 	text-align: center;
+ 	color: cyan;
 }
 
 body {	
 	font-family: Minecraft;
-}
-
-#scorezeile {
-	color: cyan;
-}
-
-#levelzeile {
-	color: cyan;
-}
-
-p {
-	color: grey;
+	font-size: 25px;
+	text-shadow: 3px 2px grey;
+	background-image: url(../Media/bgtetris.png);
+	line-height: 0.6;
 }
 
 button {
 	font-family: Minecraft;
 }
 
+footer {
+	line-height: 1.5;
+}
+
+a:visited {
+	color: cyan;
+}
 
 #myCanvas {
 	background: #000000;
