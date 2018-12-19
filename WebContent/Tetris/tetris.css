@@ -5,20 +5,34 @@
 	src: url(../Media/Minecraft.ttf);
 	}
 
-body {
+html {
+  text-align: center;
+}
+
+body {	
 	font-family: Minecraft;
-	
 }
 
 #scorezeile {
-	color: blue;
+	color: cyan;
 }
+
+#levelzeile {
+	color: cyan;
+}
+
+p {
+	color: grey;
+}
+
 button {
 	font-family: Minecraft;
 }
 
+
 #myCanvas {
-	border: 1px solid black;
+	background: #000000;
+	border: 2px solid grey;
 	padding-left: 0;
     padding-right: 0;
     margin-left: auto;

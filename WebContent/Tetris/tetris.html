@@ -7,8 +7,10 @@
 	<title>Web-Projekt Tetris</title>
 </head>
 
-<body>
-
+<body style="background-image:url(../Media/bgtetris.png)">
+    
+    <p><a href="../Media/bgtetris.png"></a></p>
+    
 	<audio id="TetrisMelodie">
 		<source src="../Media/tetris-gameboy-02.mp3" type="audio/mpeg">
 	</audio>
@@ -22,9 +24,14 @@
 		<input type="text" value="name"/>
 	</form>
 	
+	<p>
+	Punkte:
+	</p>
+	
 	<p id="scorezeile">	
 		0
 	</p>
+	
 	<p>Level:</p>
 	<p id="levelzeile">
 		1
@@ -32,6 +39,7 @@
 			 
 	<button onclick="savescore()">Save Highscore</button>
 	<button id ="gameBtn" onclick="newGame()">Neues Spiel</button>
+	
 	<footer>
 		<button id="mbutton" onclick="audioScript()">Musik abspielen</button>
 		<a href = "../Highscore/highscore.html">goto Highscore</a>

@@ -67,17 +67,14 @@ function tick() {
     else {
         halten();
         leeren();
-        if (verloren) {
-        	var canvas = document.getElementById("myCanvas");
-        	var ctx = canvas.getContext("2d");
-        	ctx.font = "30px Arial";
+        if (verloren) {        	
         	ctx.strokeText("GIT GUD", 320, 240);
         	gameBtn.disabled = false;
             return false;
         }
         newShape();
     }
-    if(notpaused){
+    if(notpaused || !verloren){
     	setTimeout(tick,tickrate);
     }
     levelzeile.innerHTML = newlvl;
