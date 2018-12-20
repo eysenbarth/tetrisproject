@@ -21,7 +21,7 @@
 	<button id="pauseBtn" onclick= "pause()"> Pause</button>
 	
 	<form id="namefield">
-		<input type="text" value="name"/>
+		<input id="inputfield" type="text" oninput="antiInjection(inputfield)"/>
 	</form>
 	
 	<p>
