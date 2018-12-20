@@ -37,8 +37,10 @@ function antiInjection(textinput) {
 	var zulaessig =  /^[0-9a-zA-Z]+$/;
 	if(!textinput.value.match(zulaessig)){
 		inputfield.value = "";
+		ctx.font = "30px Arial";
 		ctx.fillStyle = "cyan";
-		ctx.fillText("Sonderzeichen sind nicht erlaubt!",400,200);
+		ctx.textAlign = "center";
+		ctx.fillText("Sonderzeichen sind nicht erlaubt!",canvas.width/2,580);
 	}
 }
 
