@@ -33,6 +33,17 @@ function savescore(){
 	}
 }
 
+function antiInjection(textinput) {
+	var zulaessig =  /^[0-9a-zA-Z]+$/;
+	if(!textinput.value.match(zulaessig)){
+		inputfield.value = "";
+		ctx.font = "30px Arial";
+		ctx.fillStyle = "cyan";
+		ctx.textAlign = "center";
+		ctx.fillText("Sonderzeichen sind nicht erlaubt!",canvas.width/2,580);
+	}
+}
+
 function buildTable(){
 	var table = document.createElement("TABLE");
 	table.id = "dynTable"

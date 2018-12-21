@@ -69,9 +69,11 @@ function tick() {
         leeren();
         if (verloren) {
         	clearInterval(interval);
+        	ctx.font = "50px Arial";
         	ctx.fillStyle = "cyan";
-        	ctx.strokeText("GIT GUD", 320, 240);
+        	ctx.fillText("GIT GUD", canvas.width/2, canvas.height/2);
         	gameBtn.disabled = false;
+        	savescore();
             return false;
         }
         newShape();
@@ -203,22 +205,26 @@ function pause() {
 }
 
 function newGame() {
-	interval = setInterval( render, 30 );
-	gameBtn.disabled = true;
-    notpaused = true;
-    init();
-    newShape();
-    verloren = false;
-    tickrate = 500;
-    tick();
-    score = 0;
-    newlvl = 1;
-    scorezeile.innerHTML = score;
-    levelzeile.innerHTML = newlvl;
+	if(inputfield.value != ""){
+		interval = setInterval( render, 30 );
+		gameBtn.disabled = true;
+	    notpaused = true;
+	    init();
+	    newShape();
+	    verloren = false;
+	    tickrate = 500;
+	    tick();
+	    score = 0;
+	    newlvl = 1;
+	    scorezeile.innerHTML = score;
+	    levelzeile.innerHTML = newlvl;
+	}
 }
 
 function startText() {
+	ctx.font = "30px Arial";
 	ctx.fillStyle = "cyan";
 	ctx.textAlign = "center";
-	ctx.fillText("Bitte geben Sie Ihren Namen in das Vorgegebene Feld ein",20,20);
+	ctx.fillText("Bitte geben Sie Ihren Namen",canvas.width/2,40);
+	ctx.fillText("in das Feld unter dem Fenster ein",canvas.width/2,80);
 }
