@@ -78,7 +78,7 @@ function tick() {
         }
         newShape();
     }
-    if(notpaused || !verloren){
+    if(notpaused){
     	setTimeout(tick,tickrate);
     }
     levelzeile.innerHTML = newlvl;
