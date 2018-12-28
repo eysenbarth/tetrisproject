@@ -73,6 +73,7 @@ function tick() {
         	ctx.font = "50px Arial";
         	ctx.fillStyle = "cyan";
         	ctx.fillText("GIT GUD", canvas.width/2, canvas.height/2);
+        	ctx.fillText("Starte ein neues Spiel", canvas.width/2, canvas.height/2+40);
         	gameBtn.disabled = false;
         	savescore();
         }
@@ -137,31 +138,32 @@ function leeren() {
 }
 // übersetzt die Tasteneingaben
 function keyPress( key ) {
-	
-	if(notpaused){
-	    switch ( key ) {
-	        case 'links':
-	            if ( valid( -1 ) ) {
-	                --tetrominoX;
-	            }
-	            break;
-	        case 'rechts':
-	            if ( valid( 1 ) ) {
-	                ++tetrominoX;
-	            }
-	            break;
-	        case 'hinab':
-	            if ( valid( 0, 1 ) ) {
-	                ++tetrominoY;
-	            }
-	            break;
-	        case 'drehen':
-	            var gedreht = drehen( tetromino );
-	            if ( valid( 0, 0, gedreht ) ) {
-	                tetromino = gedreht;
-	            }
-	            break;
-	    }
+	if(!verloren){
+		if(notpaused){
+		    switch ( key ) {
+		        case 'links':
+		            if ( valid( -1 ) ) {
+		                --tetrominoX;
+		            }
+		            break;
+		        case 'rechts':
+		            if ( valid( 1 ) ) {
+		                ++tetrominoX;
+		            }
+		            break;
+		        case 'hinab':
+		            if ( valid( 0, 1 ) ) {
+		                ++tetrominoY;
+		            }
+		            break;
+		        case 'drehen':
+		            var gedreht = drehen( tetromino );
+		            if ( valid( 0, 0, gedreht ) ) {
+		                tetromino = gedreht;
+		            }
+		            break;
+		    }
+		}
 	}
     
 }
