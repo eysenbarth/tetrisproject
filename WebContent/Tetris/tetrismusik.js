@@ -32,6 +32,8 @@ function settleSound(){
 
 function loseSound(){
 	if(play){
-		
+		GameOver.play();
+		TetrisMelodie.pause();
+		TetrisMelodie.currentTime = 0;
 	}
 }

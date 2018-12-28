@@ -233,6 +233,9 @@ function newGame() {
 	    newlvl = 1;
 	    scorezeile.innerHTML = score;
 	    levelzeile.innerHTML = newlvl;
+	    if(play){
+	    	TetrisMelodie.play();
+	    }
 	}
 }
 
