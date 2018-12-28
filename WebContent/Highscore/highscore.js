@@ -3,40 +3,50 @@ var score;
 var count;
 var i;
 
+//Baut die Highscore Tabelle und sortiert sie nach Score
 function showHighscore(){
 	buildTable();
 	sortTable();
 }	
 
+//Globaler Zähler im LocalStorage verankert für Seiten und Session übergreifendes Speichern
 function setcount(){
+	//Sicherheitsabfrage
 	if(localStorage.getItem("count")!=null){
 		//in Zahl umwandeln
 		count = Number(localStorage.getItem("count"));
 	}
+	//wenn noch kein Count vorhanden, hier angelegt
 	if(count == undefined){
 		count = 0;
 	} else{
 		count+=1;	
 	}
-
+	//Speichern des neuen Wertes
 	localStorage.setItem("count", count);
 }
 
+//Speichert den erreichten Score
 function savescore(){
+	//String aus Textfeld lesen
 	namestr = namefield.elements[0].value;
 	setcount();
+	//Sicherheitsabfrage, ob LocalStorage unterstuetzt wird
 	if (typeof(Storage) !== "undefined") {
-		//umständlich, da String benötigt
+		//umständlich, da String benoetigt
 		localStorage.setItem(localStorage.getItem("count"),JSON.stringify({name: namestr, highscore:score}));
 	} else {
-		alert("Sorry, your browser does not support Web Storage...");
+		console.log("Sorry, your browser does not support Web Storage...");
 	}
 }
 
+//Sicherheitsmechanismus: nur Zahlen oder Groß- und Kleinbuchstaben duerfen verwendet werden
 function antiInjection(textinput) {
 	var zulaessig =  /^[0-9a-zA-Z]+$/;
+	//Abfrage zur Uebereinstimmung
 	if(!textinput.value.match(zulaessig)){
 		inputfield.value = "";
+		//Canvas anzeige
 		ctx.font = "30px Arial";
 		ctx.fillStyle = "cyan";
 		ctx.textAlign = "center";
@@ -44,17 +54,21 @@ function antiInjection(textinput) {
 	}
 }
 
+//Baut die Tabelle dynamisch
 function buildTable(){
+	//erzeugt Tabellen Element
 	var table = document.createElement("TABLE");
 	table.id = "dynTable"
 
 	var tableBody = document.createElement("TBODY");
+	//Erweiterung von table mit jedem "append[..]"-Befehl
 	table.appendChild(tableBody);
 
+	//von 0 bis Count; Alle Eintraege im LocalStorage
 	for (var i = 0; i <= Number(localStorage.getItem("count")); i++) {
 	  var tr = document.createElement("TR");
 	  tableBody.appendChild(tr);
-
+	  //0 Name, 1 Score
 	  for (var j = 0; j < 2; j++) {
 	    var td = document.createElement("TD");
 	    if(j == 0){
@@ -66,9 +80,11 @@ function buildTable(){
 	    }
 	  }
 	}
+	//HighSCoReTable
 	hscrTable.appendChild(table);
 }
 
+//Sortieralgorithmus von W3Schools, Variablen angepasst
 function sortTable() {
 	var rows, switching, x, y, shouldSwitch;
 	switching = true;
@@ -77,7 +93,7 @@ function sortTable() {
 		//start by saying: no switching is done:
 		switching = false;
 		rows = dynTable.rows;
-		/*Loop through all table rows (except the first, which contains table headers):*/
+		/*Loop through all table rows:*/
 		for (i = 0; i < (rows.length - 1); i++) {
 			//start by saying there should be no switching:
 			shouldSwitch = false;
