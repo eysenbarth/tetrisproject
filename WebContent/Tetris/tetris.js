@@ -163,7 +163,7 @@ function keyPress( key ) {
 		            var gedreht = drehen( tetromino );
 		            if ( valid( 0, 0, gedreht ) ) {
 		                tetromino = gedreht;
-		                turnSound();
+		                rotateSound();
 		            }
 		            break;
 		    }

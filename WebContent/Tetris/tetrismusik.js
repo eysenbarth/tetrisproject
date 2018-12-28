@@ -14,7 +14,7 @@ function audioScript() {
 
 function rotateSound(){
 	if(play){
-		
+		Rotate.play()
 	}
 }
 
