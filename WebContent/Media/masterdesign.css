@@ -5,6 +5,11 @@
 	src: url(../Media/Minecraft.ttf);
 	}
 
+#Logo{
+	margin: auto;
+	max-width: 33%;	
+}
+
 html {
  	text-align: center;
  	color: cyan;
