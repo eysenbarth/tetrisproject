@@ -1,7 +1,7 @@
-//Variable zur Abfrage, ob Musik allgemein gespielt werden soll
+//Variable zur Abfrage, ob Toene allgemein gespielt werden sollen
 var play = false;
 
-//Starten oder Stoppen der Musik, gleichzeitig veraendern von Play
+//Starten oder Stoppen der Hintergrundusik, gleichzeitig veraendern von play
 function audioScript() {
 	if (play) {
 		TetrisMelodie.pause();
@@ -35,7 +35,7 @@ function settleSound(){
 	}
 }
 
-//Verloren Geraeusch
+//Verloren Geraeusch, setzt die Hintergrundmusik zurück
 function loseSound(){
 	if(play){
 		GameOver.play();

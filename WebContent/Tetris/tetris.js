@@ -69,13 +69,16 @@ function tick() {
         halten();
         leeren();
         if (verloren) {
+        	//Render wird angehalten(siehe newGame())
         	clearInterval(interval);
         	ctx.font = "50px Arial";
         	ctx.fillStyle = "cyan";
         	ctx.fillText("GIT GUD", canvas.width/2, canvas.height/2);
+        	//Neues Spiel Button wird wieder freigegeben
         	gameBtn.disabled = false;
+        	//Pause Button wird wieder deaktiviert
         	pauseBtn.disabled = true;
-        	nope = true;
+        	//Score wird gespeichert 
         	savescore();
         	loseSound();
         }
@@ -141,7 +144,7 @@ function leeren() {
 }
 // übersetzt die Tasteneingaben
 function keyPress( key ) {
-
+		//keine Eingabe bei Verloren oder Pausiert
 		if(notpaused && !verloren){
 		    switch ( key ) {
 		        case 'links':
@@ -199,29 +202,38 @@ function valid( offsetX, offsetY, temptromino ) {
     return true;
 }
 
+//Pausieren Funktion
 function pause() {
 	if(notpaused == true){
 		notpaused = false;
 		pauseBtn.innerHTML = "Weiter";
+		//Button mit Tickrate abschalten, um beschleunigen der Tetrominos zu vermeiden
 		pauseBtn.disabled = true;
 		setTimeout(pauseTimer,tickrate);
 	} else {
 		notpaused = true;
 		pauseBtn.innerHTML = "Pause";
+		//Button mit Tickrate abschalten, um beschleunigen der Tetrominos zu vermeiden
 		pauseBtn.disabled = true;
 		setTimeout(pauseTimer,tickrate);
+		//wieder anstarten des Spiels
 		tick();
 	}
 }
 
+//Funktion für setTimeout benötigt
 function pauseTimer(){
 	pauseBtn.disabled = false;
 }
 
+//Beginnt das Spiel, wenn im Textfeld etwas steht
 function newGame() {
 	if(inputfield.value != ""){
+		//Render wird alle 30ms ausgeführt
 		interval = setInterval( render, 30 );
+		//kein Starten während des Spiels
 		gameBtn.disabled = true;
+		//Pause Button aktivieren
 		pauseBtn.disabled = false;
 	    notpaused = true;
 	    init();
@@ -233,12 +245,14 @@ function newGame() {
 	    newlvl = 1;
 	    scorezeile.innerHTML = score;
 	    levelzeile.innerHTML = newlvl;
+	    //wenn Musik spielen sollte, wird diese wieder gestartet
 	    if(play){
 	    	TetrisMelodie.play();
 	    }
 	}
 }
 
+//Default Text beim Laden der Seite
 function startText() {
 	ctx.font = "30px Arial";
 	ctx.fillStyle = "cyan";
