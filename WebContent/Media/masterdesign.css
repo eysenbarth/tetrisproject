@@ -44,6 +44,13 @@ a:visited {
     display: block;
 }
 
+#levelzeile {
+	line-height: 0.3;
+}
+
+#scorezeile {
+	line-height: 0.3;
+}
 table {
 	margin: auto;
 	border: 2px solid grey;
