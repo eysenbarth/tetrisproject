@@ -135,10 +135,9 @@ function leeren() {
             	tickrate -= 50;
                 levelzeile.innerHTML = newlvl;
             }
-           
+            clearSound();
         }
     }
-    clearSound();
 }
 // übersetzt die Tasteneingaben
 function keyPress( key ) {
