@@ -2,7 +2,7 @@ var SPALTEN = 10, REIHEN = 20;
 var spielfeld = [];
 var verloren;
 var tetromino; // tetromino aktuell
-var tetrominoX, tetrominoY; // position des tetrominos 
+var tetrominoX, tetrominoY; // position des tetrominos
 var tetrominos = [
     [ 1, 1, 1, 1 ],
     [ 1, 1, 1, 0,
@@ -43,12 +43,12 @@ function newShape() {
             }
         }
     }
-    //Startposition
+    // Startposition
     tetrominoX = 5;
     tetrominoY = 0;
 }
 
-//räumt das Spielfeld ab durch 0-setzen aller Variablem im Spielfeld Array.
+// räumt das Spielfeld ab durch 0-setzen aller Variablem im Spielfeld Array.
 function init() {
     for ( var y = 0; y < REIHEN; ++y ) {
         spielfeld[ y ] = [];
@@ -58,7 +58,8 @@ function init() {
     }
 }
 
-// tickt die Steinchen runter, leert das spielfeld und startet ggf ein neues Spiel. Hier ggf die kontrollstruktur einbauen für abfrage für neues spiel?
+// tickt die Steinchen runter, leert das spielfeld und startet ggf ein neues
+// Spiel. Hier ggf die kontrollstruktur einbauen für abfrage für neues spiel?
 function tick() {
     if ( valid( 0, 1 ) ) {
         ++tetrominoY;
@@ -106,8 +107,9 @@ function drehen( tetromino ) {
     return temptromino;
 }
 
-// prüft von oben nach unten ob Reihen gefüllt sind und löscht reihen, sollten überall 1en sein.
-//nachtrag 18/12 punkte logik zu den reihen
+// prüft von oben nach unten ob Reihen gefüllt sind und löscht reihen, sollten
+// überall 1en sein.
+// nachtrag 18/12 punkte logik zu den reihen
 function leeren() {
     for ( var y = REIHEN - 1; y >= 0; --y ) {
         var rowFilled = true;
@@ -134,7 +136,7 @@ function leeren() {
         }
     }
 }
-//übersetzt die Tasteneingaben
+// übersetzt die Tasteneingaben
 function keyPress( key ) {
 	
 	if(notpaused){
@@ -165,7 +167,7 @@ function keyPress( key ) {
     
 }
 
-// Testet ob die Position für den Tetromino erreichbar ist. 
+// Testet ob die Position für den Tetromino erreichbar ist.
 function valid( offsetX, offsetY, temptromino ) {
     offsetX = offsetX || 0;
     offsetY = offsetY || 0;
@@ -184,7 +186,7 @@ function valid( offsetX, offsetY, temptromino ) {
                   || x + offsetX < 0
                   || y + offsetY >= REIHEN
                   || x + offsetX >= SPALTEN ) {
-                    if (offsetY == 1) verloren = true; // Tetromino stößt oben an
+                    if (offsetY == 1) verloren = true; // Tetromino an Decke
                     return false;
                 }
             }
@@ -199,7 +201,6 @@ function pause() {
 		pauseBtn.innerHTML = "Weiter";
 	} else {
 		notpaused = true;
-		tick();
 		pauseBtn.innerHTML = "Pause";
 	}
 }
