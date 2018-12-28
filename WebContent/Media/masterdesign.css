@@ -11,10 +11,15 @@ html {
  	font-family: Minecraft;
 	font-size: 25px;
 	text-shadow: 3px 2px grey;
-	background-image: url(../Media/bgtetris.png);
+	background-image: url(../Media/tetrisbgp.png);
+	
 }
 h1 {
 	font-size: 50px;	
+}
+h3 {
+	font-size: 20px;
+	line-height:0.5;
 }
 
 button {
