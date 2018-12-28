@@ -59,7 +59,7 @@ function init() {
 }
 
 // tickt die Steinchen runter, leert das spielfeld und startet ggf ein neues
-// Spiel. Hier ggf die kontrollstruktur einbauen für abfrage für neues spiel?
+
 function tick() {
     if ( valid( 0, 1 ) ) {
         ++tetrominoY;
@@ -74,6 +74,7 @@ function tick() {
         	ctx.fillStyle = "cyan";
         	ctx.fillText("GIT GUD", canvas.width/2, canvas.height/2);
         	gameBtn.disabled = false;
+        	nope = true;
         	savescore();
         }
         newShape();
