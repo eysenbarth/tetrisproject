@@ -75,7 +75,6 @@ function tick() {
         	ctx.fillText("GIT GUD", canvas.width/2, canvas.height/2);
         	gameBtn.disabled = false;
         	savescore();
-            return false;
         }
         newShape();
     }
@@ -166,7 +165,6 @@ function keyPress( key ) {
 	}
     
 }
-
 // Testet ob die Position für den Tetromino erreichbar ist.
 function valid( offsetX, offsetY, temptromino ) {
     offsetX = offsetX || 0;
