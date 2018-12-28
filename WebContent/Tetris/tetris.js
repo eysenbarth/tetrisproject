@@ -4,19 +4,13 @@ var verloren;
 var tetromino; // tetromino aktuell
 var tetrominoX, tetrominoY; // position des tetrominos
 var tetrominos = [
-    [ 1, 1, 1, 1 ],
-    [ 1, 1, 1, 0,
-      1 ],
-    [ 1, 1, 1, 0,
-      0, 0, 1 ],
-    [ 1, 1, 0, 0,
-      1, 1 ],
-    [ 1, 1, 0, 0,
-      0, 1, 1 ],
-    [ 0, 1, 1, 0,
-      1, 1 ],
-    [ 0, 1, 0, 0,
-      1, 1, 1 ]
+    [ 1, 1, 1, 1 ],				// I
+    [ 1, 1, 1, 0,1 ], 			// L
+    [ 1, 1, 1, 0, 0, 0, 1 ], 	// J
+    [ 1, 1, 0, 0, 1, 1 ], 		// O
+    [ 1, 1, 0, 0, 0, 1, 1 ], 	// Z
+    [ 0, 1, 1, 0, 1, 1 ], 		// S
+    [ 0, 1, 0, 0, 1, 1, 1 ] 	// T
 ];
 var colors = [
     'cyan', 'orange', 'blue', 'yellow', 'red', 'green', 'purple'
