@@ -20,13 +20,13 @@ function rotateSound(){
 
 function clearSound(){
 	if(play){
-		
+		Line.play();
 	}
 }
 
 function settleSound(){
 	if(play){
-		
+		Fall.play();
 	}
 }
 
