@@ -1,13 +1,13 @@
-var play = 0;
+var play = false;
 
 function audioScript() {
-	if (play != 0) {
+	if (play) {
 		TetrisMelodie.pause();
-		play = 0;
+		play = false;
 		document.getElementById("mbutton").innerHTML = "Musik abspielen";
 	} else {
 		TetrisMelodie.play();
-		play = 1;
+		play = true;
 		document.getElementById("mbutton").innerHTML = "Musik pausieren"
 	}
 }
