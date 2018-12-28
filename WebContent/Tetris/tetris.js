@@ -79,7 +79,7 @@ function tick() {
         }
         newShape();
     }
-    if(notpaused){
+    if(notpaused && !verloren){
     	setTimeout(tick,tickrate);
     }
     levelzeile.innerHTML = newlvl;
