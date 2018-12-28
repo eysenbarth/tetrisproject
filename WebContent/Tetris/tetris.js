@@ -82,7 +82,6 @@ function tick() {
     if(notpaused && !verloren){
     	setTimeout(tick,tickrate);
     }
-    levelzeile.innerHTML = newlvl;
 }
 
 function halten() {
@@ -131,6 +130,7 @@ function leeren() {
             if(score/1000 == newlvl){
             	newlvl += 1;
             	tickrate -= 50;
+                levelzeile.innerHTML = newlvl;
             }
            
         }
