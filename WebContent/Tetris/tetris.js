@@ -77,6 +77,7 @@ function tick() {
         	pauseBtn.disabled = true;
         	nope = true;
         	savescore();
+        	loseSound();
         }
         newShape();
     }
@@ -93,6 +94,7 @@ function halten() {
             }
         }
     }
+    settleSound();
 }
 
 function drehen( tetromino ) {
@@ -136,6 +138,7 @@ function leeren() {
            
         }
     }
+    clearSound();
 }
 // übersetzt die Tasteneingaben
 function keyPress( key ) {
@@ -161,6 +164,7 @@ function keyPress( key ) {
 		            var gedreht = drehen( tetromino );
 		            if ( valid( 0, 0, gedreht ) ) {
 		                tetromino = gedreht;
+		                turnSound();
 		            }
 		            break;
 		    }

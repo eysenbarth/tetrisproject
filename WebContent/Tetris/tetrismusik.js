@@ -11,3 +11,27 @@ function audioScript() {
 		document.getElementById("mbutton").innerHTML = "Musik pausieren"
 	}
 }
+
+function rotateSound(){
+	if(play){
+		
+	}
+}
+
+function clearSound(){
+	if(play){
+		
+	}
+}
+
+function settleSound(){
+	if(play){
+		
+	}
+}
+
+function loseSound(){
+	if(play){
+		
+	}
+}
