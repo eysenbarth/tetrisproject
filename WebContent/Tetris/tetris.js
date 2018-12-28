@@ -138,8 +138,8 @@ function leeren() {
 }
 // übersetzt die Tasteneingaben
 function keyPress( key ) {
-	if(!verloren){
-		if(notpaused){
+
+		if(notpaused && !verloren){
 		    switch ( key ) {
 		        case 'links':
 		            if ( valid( -1 ) ) {
@@ -164,7 +164,7 @@ function keyPress( key ) {
 		            break;
 		    }
 		}
-	}
+	
     
 }
 // Testet ob die Position für den Tetromino erreichbar ist.
