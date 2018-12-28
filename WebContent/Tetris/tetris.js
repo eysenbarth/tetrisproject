@@ -74,6 +74,7 @@ function tick() {
         	ctx.fillStyle = "cyan";
         	ctx.fillText("GIT GUD", canvas.width/2, canvas.height/2);
         	gameBtn.disabled = false;
+        	pauseBtn.disabled = true;
         	nope = true;
         	savescore();
         }
@@ -199,16 +200,26 @@ function pause() {
 	if(notpaused == true){
 		notpaused = false;
 		pauseBtn.innerHTML = "Weiter";
+		pauseBtn.disabled = true;
+		setTimeout(pauseTimer,tickrate);
 	} else {
 		notpaused = true;
 		pauseBtn.innerHTML = "Pause";
+		pauseBtn.disabled = true;
+		setTimeout(pauseTimer,tickrate);
+		tick();
 	}
+}
+
+function pauseTimer(){
+	pauseBtn.disabled = false;
 }
 
 function newGame() {
 	if(inputfield.value != ""){
 		interval = setInterval( render, 30 );
 		gameBtn.disabled = true;
+		pauseBtn.disabled = false;
 	    notpaused = true;
 	    init();
 	    newShape();
