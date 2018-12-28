@@ -6,11 +6,11 @@ function audioScript() {
 	if (play) {
 		TetrisMelodie.pause();
 		play = false;
-		document.getElementById("mbutton").innerHTML = "Musik abspielen";
+		document.getElementById("mbutton").innerHTML = "Ton an";
 	} else {
 		TetrisMelodie.play();
 		play = true;
-		document.getElementById("mbutton").innerHTML = "Musik pausieren"
+		document.getElementById("mbutton").innerHTML = "Ton aus"
 	}
 }
 
