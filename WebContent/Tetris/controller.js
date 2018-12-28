@@ -7,6 +7,6 @@ document.body.onkeydown = function( taste ) {
     };
     if ( typeof tasten[ taste.keyCode ] != 'undefined' ) {
         keyPress( tasten[ taste.keyCode ] );
-        //render();
+        render();
     }
 };
