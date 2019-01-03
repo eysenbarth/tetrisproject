@@ -1,8 +1,9 @@
 var SPALTEN = 10, REIHEN = 20;
 var spielfeld = [];
 var verloren;
-var tetromino; // tetromino aktuell
-var tetrominoX, tetrominoY; // position des tetrominos
+var tetromino; // Tetromino aktuell
+var tetrominoX, tetrominoY; // Position des aktuellen Tetrominos
+// Arrays zur Erstellung der Tetrominoformen.
 var tetrominos = [
     [ 1, 1, 1, 1 ],				// I
     [ 1, 1, 1, 0,1 ], 			// L
@@ -15,6 +16,9 @@ var tetrominos = [
 var colors = [
     'cyan', 'orange', 'blue', 'yellow', 'red', 'green', 'purple'
 ];
+
+// Tetrominofarben und Formen werden durch die Arrayindizes miteinander verbunden.
+
 var tickrate ;
 var newlvl;
 var notpaused;
@@ -22,7 +26,7 @@ var interval;
 
 function newShape() {
     var id = Math.floor( Math.random() * tetrominos.length );
-    var shape = tetrominos[ id ]; 
+    var shape = tetrominos[ id ]; // ID wird verwendet um den Formen die Farben zuzuordnen.
 
     tetromino = [];
     for ( var y = 0; y < 4; ++y ) {
@@ -42,7 +46,7 @@ function newShape() {
     tetrominoY = 0;
 }
 
-// räumt das Spielfeld ab durch 0-setzen aller Variablem im Spielfeld Array.
+// Räumt das Spielfeld ab, durch 0-setzen aller Variablen im Spielfeld-Array.
 function init() {
     for ( var y = 0; y < REIHEN; ++y ) {
         spielfeld[ y ] = [];
@@ -52,13 +56,13 @@ function init() {
     }
 }
 
-// tickt die Steinchen runter, leert das spielfeld und startet ggf ein neues
+// tickt die Steinchen runter, leert das Spielfeld und startet ggf ein Neues
 
 function tick() {
     if ( valid( 0, 1 ) ) {
         ++tetrominoY;
     }
-    // tetromino findet position
+    // Tetromino findet position
     else {
         halten();
         leeren();
@@ -125,6 +129,9 @@ function leeren() {
                 }
             }
             ++y;
+            
+            // Levelmodul eingebaut, Variiert alle 1000 Punkte. Reihen werden nacheinander gezählt
+            //funktioniert dementsprechend auch, wenn zwei Reihen gleichzeitig abgearbeitet werden.
             score += 100;
             scorezeile.innerHTML = score;
             if(score/1000 == newlvl){
@@ -138,7 +145,7 @@ function leeren() {
 }
 // übersetzt die Tasteneingaben
 function keyPress( key ) {
-		//keine Eingabe bei Verloren oder Pausiert
+		//keine Eingabe bei Verloren oder Pausiert möglich
 		if(notpaused && !verloren){
 		    switch ( key ) {
 		        case 'links':
@@ -201,16 +208,16 @@ function pause() {
 	if(notpaused == true){
 		notpaused = false;
 		pauseBtn.innerHTML = "Weiter";
-		//Button mit Tickrate abschalten, um beschleunigen der Tetrominos zu vermeiden
+		//Button mit Tickrate abschalten, um Beschleunigen der Tetrominos zu vermeiden
 		pauseBtn.disabled = true;
 		setTimeout(pauseTimer,tickrate);
 	} else {
 		notpaused = true;
 		pauseBtn.innerHTML = "Pause";
-		//Button mit Tickrate abschalten, um beschleunigen der Tetrominos zu vermeiden
+		//Button mit Tickrate abschalten, um Beschleunigen der Tetrominos zu vermeiden
 		pauseBtn.disabled = true;
 		setTimeout(pauseTimer,tickrate);
-		//wieder anstarten des Spiels
+		//Zurück zum Spiel.
 		tick();
 	}
 }
@@ -220,7 +227,7 @@ function pauseTimer(){
 	pauseBtn.disabled = false;
 }
 
-//Beginnt das Spiel, wenn im Textfeld etwas steht
+//Beginnt das Spiel, wenn im Namensfeld etwas steht
 function newGame() {
 	if(inputfield.value != ""){
 		//Render wird alle 30ms ausgeführt
