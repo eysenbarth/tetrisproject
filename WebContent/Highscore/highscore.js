@@ -45,6 +45,7 @@ function antiInjection(textinput) {
 	var zulaessig =  /^[0-9a-zA-Z]+$/;
 	//Abfrage zur Uebereinstimmung
 	if(!textinput.value.match(zulaessig)){
+		//Löscht Eingabe bei Erkennung eines unzulässigen Zeichens
 		inputfield.value = "";
 		//Canvas anzeige
 		ctx.font = "30px Arial";

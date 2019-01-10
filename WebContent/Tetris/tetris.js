@@ -110,9 +110,9 @@ function drehen( tetromino ) {
     return temptromino;
 }
 
-// prüft von oben nach unten ob Reihen gefüllt sind und löscht reihen, sollten
+// prüft von oben nach unten ob Reihen gefüllt sind und löscht Reihen, sollten
 // überall 1en sein.
-// nachtrag 18/12 punkte logik zu den reihen
+// Nachtrag 18/12 Punkte Logik zu den Reihen
 function leeren() {
     for ( var y = REIHEN - 1; y >= 0; --y ) {
         var rowFilled = true;
